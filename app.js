@@ -117,30 +117,23 @@ app.get('/signUp',(req,res)=>{
    res.render('signUp')
 })
 
-app.get('/books/:nameOfBookOrId',(req,res)=>{
-    let requestedBook = req.params.nameOfBookOrId
-
-    Book.findOne({name:requestedBook},(err,book)=>{
-        if(!err){
-           if(book){
-            res.send(book)
-           }
-        }
-        else{
-            // console.log(err)
-        }
-    })
-    Book.findOne({_id:requestedBook},(err,book)=>{
-        if(!err){
-           if(book){
-            res.send(book)
-           }
-        }
-        else{
-            // console.log(err)
-        }
-    })
-
+app.get('/books/:book',(req,res)=>{
+    let requestedBook = req.params.book
+    const reg = new RegExp(`${requestedBook}`,'i') //case insensitive regex
+    const ID  = mongoose.Types.ObjectId(req.user.id)
+    if(req.isAuthenticated() && req.user.type !== "admin"){
+        User.findOne({"_id":ID,"borrowed":reg},(err,userHasBook)=>{
+            console.log(userHasBook)
+            if(userHasBook !== null){
+                Book.findOne({"name":reg},(err,book)=>{
+                    res.send(book)
+                })
+            }
+            else{
+                res.send("you haven't borrowed this book,or you dont have access to it")
+            }
+        })
+    }
 })
 
 app.post('/signUp',(req,res)=>{
