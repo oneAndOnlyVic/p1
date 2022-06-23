@@ -36,6 +36,8 @@ body{
   background-color: lightgoldenrodyellow;
   height: 40vh;
   width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .book-box{
   margin: 0px 0px 10px 0px;
@@ -115,13 +117,15 @@ body{
     height: 40vh;
     width: 100%;
     background-color: lightpink;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .all-books-in-lib{
     height: 40vh;
-    overflow-y: scroll;
     background-color: rgb(79, 79, 79);
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 .heading-light{
     text-align: center;

@@ -22,10 +22,12 @@
          <% if(borrowedBooks !== undefined){%>
             <%borrowedBooks.forEach((ele)=>{%>
               <%if(ele){%>
-                <div class="book-box">
-                  <p class="book-name"><%= ele %></p>
-                  <button class="read-book" type="submit">Read book</button>
-                </div>
+                <form action="/signIn/profile/books/<%=ele%>" method="get">
+                  <div class="book-box">
+                    <p class="book-name"><%= ele %></p>
+                    <button class="read-book" type="submit">Read book</button>
+                  </div>
+                </form>
               <%}%>
             <%})%>
           <%}%>

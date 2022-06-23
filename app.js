@@ -63,7 +63,7 @@ passport.use(new LocalStrategy(
     }
   ));
 
-mongoose.connect('mongodb://localhost:27017/libDB')
+mongoose.connect('mongodb+srv://erenyeager:erenyeager0@libdb.0kdpp.mongodb.net/libDB?retryWrites=true&w=majority')
  .then(()=>{console.log('connected')})
  .catch(()=>{console.log('an error occured')}) 
 
@@ -117,7 +117,7 @@ app.get('/signUp',(req,res)=>{
    res.render('signUp')
 })
 
-app.get('/books/:book',(req,res)=>{
+app.get('/signIn/profile/books/:book',(req,res)=>{
     let requestedBook = req.params.book
     const reg = new RegExp(`${requestedBook}`,'i') //case insensitive regex
     const ID  = mongoose.Types.ObjectId(req.user.id)
@@ -130,7 +130,7 @@ app.get('/books/:book',(req,res)=>{
                 })
             }
             else{
-                res.send("you haven't borrowed this book,or you dont have access to it")
+                res.send("you haven't borrowed this book,you dont have access to it,or it is not in our database")
             }
         })
     }
