@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/profile.css">
+</head>
+<body>
+    <h1 class="header">Profile_</h1>
+    <div class="container">
+        <div class="requests">
+             <form class="request-form" action="/signIn/profile/request" method="post">
+                <label class="request-label" for="request-input">name of book youll like to borrow</label>
+                <input class="request-input" type="text" name="bookname" id="request-input">
+                <button class="request-button" type="submit">submit</button>
+             </form>
+        </div>
+        <div class="borrowed-books">
+          <h3 class="heading-dark">Borrowed books</h3>
+         <% if(borrowedBooks !== undefined){%>
+            <%borrowedBooks.forEach((ele)=>{%>
+              <%if(ele){%>
+                <div class="book-box">
+                  <p class="book-name"><%= ele %></p>
+                  <button class="read-book" type="submit">Read book</button>
+                </div>
+              <%}%>
+            <%})%>
+          <%}%>
+        </div>
+        <div class="book-requests">
+          <h3 class="heading-dark">Requested to borrow these books</h3>
+          <%requests.forEach((ele)=>{%>
+            <%if(ele !== null){%>
+              <div class="book-box">
+                <h4 class="book-name"><%= ele.bookName %></h4>
+                <!-- <p  class="book-author">oh</p> -->
+              </div>
+            <%}%>
+          <%})%>
+          <h3 class="heading-dark">Books you can borrow</h3>
+          <%canBorrow.forEach((ele)=>{%>
+            <%if(ele !== null){%>
+              <div class="book-box">
+                <h4 class="book-name"><%= ele %></h4>
+                <!-- <p  class="book-author">oh</p> -->
+              </div>
+            <%}%>
+          <%})%>
+        </div>
+        <div class="all-books-in-lib">
+            <h3 class="heading-light">All books in the library</h3>
+            <%books.forEach((book)=>{%>
+              <%if(book !== null || undefined){%>
+                <form action= "/signIn/profile/borrow?book=<%= book.name %>" method="post">
+                  <div class="book-box">
+                      <p class="book-name"><%=book.name%></p>
+                      <p class="book-author"><%=book.author%></p>
+                      <button class="read-book" type="submit">Borrow book</button>
+                  </div>
+                </form>
+              <%}%>
+            <%})%>
+        </div>
+    </div>
+</body>
+</html>

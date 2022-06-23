@@ -1,0 +1,134 @@
+html,body{
+    padding: 0px;
+    margin: 0px;
+    background-color: lightgreen;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.header{
+    position: absolute;
+    top: 0px;
+    font-weight: 900;
+    color: lightcoral;
+    font-size: 4rem;
+    margin: 0px;
+}
+.container{
+    min-height: 80vh;
+    width: 90vw;
+    background-color: lightcyan;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.requests{
+    background-color: lightgray;
+    width: 100%;
+    height: 100%;
+}
+
+.borrowed-books{
+  background-color: lightgoldenrodyellow;
+  height: 40vh;
+  width: 100%;
+}
+.book-box{
+  margin: 0px 0px 10px 0px;
+  padding: 0 2px;
+  background-color: lightskyblue;
+  position: relative;
+}
+.book-name{
+  background-color: lightblue;
+  margin: 0px;
+}
+.book-name:hover{
+    cursor: pointer;
+    background-color: lightskyblue;
+    color: white;
+}
+.book-author{
+  margin: 0px;
+}
+.book-author:hover{
+    background-color: lightblue;
+    cursor: pointer;
+    color: white;
+}
+.read-book{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border: 1px solid transparent;
+    color: white;
+    background-color: rgb(74, 74, 74);
+   
+}
+.read-book:hover{
+    transform: scale(1.03);
+    cursor: pointer;
+    background-color: lightgray;
+    color: black;
+}
+.request-form{
+  height: 40vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.request-input{
+  border-radius: 5px;
+  border: 3px solid skyblue;
+  width: 80%;
+}
+
+.request-input:focus{
+    outline: 3px solid lightgreen;
+}
+
+.request-label{
+    margin-bottom: 10px;
+    color: white;
+}
+
+.request-button{
+    background-color: lightblue;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 2px solid skyblue;
+    width: 70%;
+}
+.request-button:hover{
+    background-color: lightgreen;
+    color: white;
+    border: 2px solid lightgreen;
+}
+
+.book-requests{
+    height: 40vh;
+    width: 100%;
+    background-color: lightpink;
+}
+
+.all-books-in-lib{
+    height: 40vh;
+    overflow-y: scroll;
+    background-color: rgb(79, 79, 79);
+    overflow-x: hidden;
+}
+.heading-light{
+    text-align: center;
+    color: white;
+}
+
+.heading-dark{
+    text-align: center;
+    color: gray;
+}
